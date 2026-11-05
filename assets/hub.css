@@ -133,3 +133,11 @@ body {
 .photo img { width: 100%; height: auto; display: block; border-radius: 12px; border: 1px solid var(--hairline); }
 .review-link { margin-bottom: 1rem; }
 @media (max-width: 480px) { .facts div { grid-template-columns: 1fr; gap: 0.15rem; } }
+
+/* card = div; title link stretches over the card, review link sits on top */
+.topic { position: relative; }
+.topic a { color: inherit; text-decoration: none; }
+.topic a.title::after { content: ""; position: absolute; inset: 0; border-radius: 12px; }
+.topic a.hint { position: relative; z-index: 1; justify-self: start; text-decoration: underline; text-decoration-color: var(--hairline); text-underline-offset: 3px; }
+.topic a.hint:hover { color: var(--accent); text-decoration-color: var(--accent); }
+.topic a.title:focus-visible::after { outline: 2px solid var(--accent); outline-offset: 2px; }
