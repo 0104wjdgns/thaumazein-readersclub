@@ -270,3 +270,4 @@ body.is-done {
   background-color: #f6f0e6;
 }
 .closing--end { margin: var(--s7) auto var(--s6); font-family: var(--font-serif); font-size: 1.15rem; color: var(--ink); line-height: 1.8; }
+.wait-note { text-align: center; font-size: .85rem; letter-spacing: .01em; color: color-mix(in srgb, var(--ink) 42%, transparent); margin: var(--s6) auto 0; max-width: 30rem; }

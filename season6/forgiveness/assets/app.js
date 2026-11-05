@@ -319,6 +319,7 @@
       paper.appendChild(late);
     }
     app.appendChild(n("div", { class: "paper-stage" }, [paper]));
+    app.appendChild(delay(n("p", { class: "wait-note fade-in", text: "다른 분들이 답변을 작성할 때까지 함께 기다려 주시면 감사하겠습니다!" }), instant ? 0 : 1.2));
 
     app.appendChild(delay(n("div", { class: "nav fade-in" }, [
       n("button", { class: "btn-ghost", text: "← 내 답 보기", onclick: function () { go(idx - 1); } }),
