@@ -24,6 +24,7 @@
   // 주제 색 적용 (테마 변수는 이 두 개뿐)
   var root = document.documentElement;
   root.style.setProperty("--theme-main", T.theme.main);
+  root.style.setProperty("--theme-deep", T.theme.main);
   root.style.setProperty("--theme-sub", T.theme.sub);
   var metaTheme = document.querySelector('meta[name="theme-color"]');
   if (metaTheme) metaTheme.setAttribute("content", T.theme.main);
@@ -80,7 +81,26 @@
   function esc(s) { return String(s).replace(/[&<>"']/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]; }); }
   function delay(el, s) { el.style.animationDelay = s + "s"; return el; }
   function autoGrow(ta) { ta.style.height = "auto"; ta.style.height = Math.max(ta.scrollHeight + 2, 152) + "px"; }
-  function setProgress(p) { root.style.setProperty("--p", String(Math.max(0, Math.min(1, p)))); }
+  // 진행도 → 바탕색: 깊은 남보라(밤)에서 새벽빛 크림으로
+  var SKY = [[0,"#1c1a3d"],[0.22,"#262857"],[0.42,"#4a4677"],[0.58,"#8c7593"],[0.72,"#cfa99f"],[0.86,"#eed7c4"],[1,"#f6f0e6"]];
+  function hex(h) { return [1,3,5].map(function (i) { return parseInt(h.substr(i, 2), 16); }); }
+  function skyAt(p) {
+    for (var i = 1; i < SKY.length; i++) {
+      if (p <= SKY[i][0]) {
+        var a = SKY[i-1], b = SKY[i], t = (p - a[0]) / (b[0] - a[0]), ca = hex(a[1]), cb = hex(b[1]);
+        return ca.map(function (v, k) { return Math.round(v + (cb[k] - v) * t); });
+      }
+    }
+    return hex(SKY[SKY.length-1][1]);
+  }
+  function setProgress(p) {
+    p = Math.max(0, Math.min(1, p));
+    root.style.setProperty("--p", String(p));
+    var c = skyAt(p), lum = (0.2126 * c[0] + 0.7152 * c[1] + 0.0722 * c[2]) / 255;
+    root.style.setProperty("--sky", "rgb(" + c.join(",") + ")");
+    document.body.classList.toggle("dark", lum < 0.55);
+    var mt = document.querySelector('meta[name="theme-color"]'); if (mt) mt.setAttribute("content", "rgb(" + c.join(",") + ")");
+  }
   function secText(q) { return q.num === "n" ? "n." : q.num + "_"; }
 
   // ---------- 전환 (화면이 바뀔 때만 움직인다) ----------
@@ -270,9 +290,11 @@
     setProgress(0.1 + 0.9 * (qi / (NQ - 1)) * 0.92 + 0.04);
     var isLast = qi === NQ - 1;
 
-    app.appendChild(topbar("질문 " + (q.num === "n" ? "n" : q.num) + " · 자료"));
-    app.appendChild(n("h2", { class: "sec" }, [ n("span", { class: "sec-num", text: secText(q) }), n("span", { class: "sec-label", text: q.label }) ]));
-    app.appendChild(n("p", { class: "m-intro", text: "답을 남겨 주셔서 고마워요. 이 질문과 함께 읽을 한 문장이에요." }));
+    app.appendChild(topbar("질문 " + (q.num === "n" ? "n" : q.num) + " · 곁에 두는 한 문장"));
+    app.appendChild(n("div", { class: "m-head" }, [
+      n("p", { class: "eyebrow m-eyebrow", text: "곁에 두는 한 문장" }),
+      n("p", { class: "m-intro", text: "방금 남긴 생각 옆에, 이 질문과 어울리는 격언 하나를 놓아 둘게요." })
+    ]));
 
     var paper = n("article", { class: "paper" + (instant ? "" : " unfold") });
     if (!m || m.pending || !m.quote) {

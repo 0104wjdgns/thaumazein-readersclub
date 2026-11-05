@@ -52,7 +52,7 @@
 html { -webkit-text-size-adjust: 100%; }
 body {
   margin: 0; min-height: 100dvh;
-  background: var(--paper); color: var(--ink);
+  background: var(--sky, var(--paper)); color: var(--ink); transition: background-color 1.4s var(--ease-out), color .6s ease;
   font-family: var(--font-sans); font-size: var(--fs-body); line-height: 1.7;
   -webkit-font-smoothing: antialiased; word-break: keep-all; overflow-wrap: break-word;
 }
@@ -65,6 +65,7 @@ button:focus-visible, textarea:focus-visible { outline: 2px solid var(--theme-ma
 .sky-night { background: linear-gradient(180deg, color-mix(in srgb, var(--theme-main) 16%, transparent) 0%, transparent 38%); opacity: calc(1 - var(--p)); }
 .sky-dawn  { background: radial-gradient(130% 55% at 50% 0%, color-mix(in srgb, var(--theme-sub) 26%, transparent) 0%, transparent 70%); opacity: calc(.15 + var(--p) * .85); }
 body.is-cover .sky { opacity: 0; }
+.sky { display: none; } /* 바탕 자체가 진행에 따라 밝아지므로 덧칠은 끔 */
 
 .app { position: relative; z-index: 1; max-width: var(--measure); margin: 0 auto;
   padding: calc(var(--s6) + env(safe-area-inset-top)) clamp(20px, 6vw, 32px) calc(var(--s8) + env(safe-area-inset-bottom));
@@ -170,7 +171,9 @@ body.is-cover .sky { opacity: 0; }
 /* ============================================================
    3. 자료 — 종이가 펼쳐지는 인용 카드
    ============================================================ */
-.m-intro { color: var(--ink-faint); font-size: var(--fs-small); margin: var(--s2) 0 var(--s5); }
+.m-head { margin: 0 0 var(--s6); }
+.m-eyebrow { color: var(--theme-main); margin-bottom: var(--s2); }
+.m-intro { font-family: var(--font-serif); color: var(--ink-soft); font-size: 1.05rem; line-height: 1.7; margin: 0; }
 .paper-stage { perspective: 1400px; }
 .paper { position: relative; background: var(--surface); border-radius: var(--radius-lg); border: 1px solid var(--hairline);
   box-shadow: 0 1px 0 rgba(0,0,0,.02), 0 18px 40px -24px color-mix(in srgb, var(--theme-main) 45%, transparent);
@@ -234,3 +237,18 @@ body.is-cover .sky { opacity: 0; }
   *, *::before, *::after { animation-duration: 1ms !important; animation-delay: 0ms !important; transition-duration: 1ms !important; }
   .w, .fade-in, .rise, .paper .late { opacity: 1 !important; transform: none !important; filter: none !important; }
 }
+
+/* ---------- 어두운 구간(남보라 밤 → 새벽 전): 글자는 밝게, 포인트는 새벽 살구빛 ---------- */
+body.dark {
+  --ink: #f4eee4; --ink-soft: rgba(244,238,228,.80); --ink-faint: rgba(244,238,228,.58); --hairline: rgba(244,238,228,.20);
+  --theme-main: var(--theme-sub);
+}
+body.dark .btn-primary { color: #1d1b19; }
+/* 종이(입력창·인용 카드·이름 버튼)는 언제나 크림 종이 위 진한 잉크 */
+body.dark .answer, body.dark .paper, body.dark .name-btn {
+  --ink: #1d1b19; --ink-soft: #4a4741; --ink-faint: #8a857e; --hairline: #e1d9cc; --theme-main: var(--theme-deep, #16213e);
+  color: var(--ink);
+}
+body.dark .answer { border-color: transparent; }
+body.dark .paper { box-shadow: 0 24px 60px -28px rgba(0,0,0,.55); }
+body.dark .bar { background: rgba(244,238,228,.18); }
