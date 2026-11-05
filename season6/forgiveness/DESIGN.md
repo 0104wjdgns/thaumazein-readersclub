@@ -70,4 +70,6 @@
 1. `assets/topic.js` 교체: round, monthLabel, title, theme(두 색), coreQuestionLines, intro, names, questions[](label·background·q·material), closing. `plusN`은 그대로.
 2. `config.js`의 `ROUND`를 같은 값(YYYY-MM)으로.
 3. 자료 문장은 출처를 확인하고 `QUOTES.md`에 URL과 함께 기록.
-4. 로컬에서 열어 표지·질문·자료·완료를 휴대폰 폭으로 확인 → 배포.
+4. 로컬에서 열어 표지·질문·자료·완료를 휴대폰 폭으로 확인.
+5. **카톡 미리보기(OG)를 꼭 함께 만든다.** 페이지 디자인(주제 색·세리프 제목)에 맞춘 1200×630 `og.png`를 페이지 폴더에 두고, `index.html` `<head>`에 `og:type`·`og:site_name`·`og:title`(=title)·`og:description`·`og:url`·`og:image`(https 절대 주소)·`og:image:width`(1200)·`og:image:height`(630)·`twitter:card`(summary_large_image)를 넣는다. 허브에 새 카테고리·주제를 더할 때도 같다.
+6. 배포한 뒤 실제 주소에서 og 태그와 og.png가 보이는지 확인한다. 카톡이 예전 미리보기를 보여 주면 주소 끝에 `?v=2`를 붙여 공유한다.
