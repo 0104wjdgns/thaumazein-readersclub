@@ -263,3 +263,9 @@ body.dark .bar { background: rgba(244,238,228,.18); }
 
 /* 완료 화면 · 발제 제안자 감사 */
 .credit { margin: var(--s5) auto 0; max-width: 30rem; font-family: var(--font-serif); font-size: .98rem; line-height: 1.85; color: var(--ink); white-space: pre-line; }
+
+/* 완료 화면: 크림에서 아래로 갈수록 새벽 보랏빛 */
+body.is-done {
+  background: linear-gradient(180deg, #f6f0e6 0%, #f1e6e1 30%, #e2d2e0 60%, #c7b4d6 84%, #a993c6 100%) fixed;
+  background-color: #f6f0e6;
+}

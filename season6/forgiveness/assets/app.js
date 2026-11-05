@@ -113,6 +113,7 @@
   function render() {
     app.innerHTML = ""; app.className = "app";
     document.body.classList.toggle("is-cover", STEPS[idx].t === "cover");
+    document.body.classList.toggle("is-done", STEPS[idx].t === "done");
     window.scrollTo(0, 0);
     var s = STEPS[idx];
     if (s.t === "cover") return renderCover();
