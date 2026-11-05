@@ -220,7 +220,7 @@ body.is-cover .sky { opacity: 0; }
 .dots-caption b { color: var(--theme-main); font-weight: 600; }
 .demo-tag { display: inline-block; margin-top: var(--s3); font-size: .75rem; color: var(--ink-faint); border: 1px dashed var(--hairline); border-radius: var(--radius-pill); padding: 3px 10px; }
 .closing { color: var(--ink-soft); white-space: pre-line; margin: var(--s7) auto 0; max-width: 30rem; font-size: 1rem; }
-.plus-n { margin: var(--s6) auto 0; max-width: 30rem; text-align: left; padding: var(--s5); border-radius: var(--radius-md); background: var(--theme-tint);
+.plus-n { margin: var(--s6) auto 0; max-width: 30rem; text-align: center; padding: var(--s5); border-radius: var(--radius-md); background: var(--theme-tint);
   font-family: var(--font-serif); font-size: .98rem; line-height: 1.8; white-space: pre-line; color: var(--ink); }
 .notice { font-size: .8rem; color: var(--ink-faint); margin-top: var(--s4); }
 .error { color: var(--error); font-size: .85rem; word-break: break-all; }
@@ -259,3 +259,7 @@ body.dark .bar { background: rgba(244,238,228,.18); }
 .quote-author { font-size: .98rem; }
 .quote-work { margin: 0; }
 .quote-work::before { content: "· "; color: var(--ink-faint); }
+
+
+/* 완료 화면 · 발제 제안자 감사 */
+.credit { margin: var(--s5) auto 0; max-width: 30rem; font-family: var(--font-serif); font-size: .98rem; line-height: 1.85; color: var(--ink); white-space: pre-line; }

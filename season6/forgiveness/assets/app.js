@@ -385,6 +385,7 @@
       delay(n("div", { class: "rise" }, [dots]), 0.3),
       caption, tag,
       delay(n("p", { class: "closing rise", text: T.closing }), 0.6),
+      T.credit ? delay(n("p", { class: "credit rise", text: T.credit }), 0.68) : null,
       delay(n("div", { class: "plus-n rise", text: T.plusN }), 0.75),
       delay(n("div", { class: "nav rise", style: "justify-content:center" }, [
         n("button", { class: "btn-ghost", text: "← 내 답 다시 보기 · 수정", onclick: function () { go(2); } })
