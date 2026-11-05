@@ -116,3 +116,6 @@ body {
   .topic { transition: none; }
   .topic:hover { transform: none; }
 }
+
+.topic--static { cursor: default; }
+.topic--static:hover { transform: none; box-shadow: none; }
