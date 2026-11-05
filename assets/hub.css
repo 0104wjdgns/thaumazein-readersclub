@@ -119,3 +119,17 @@ body {
 
 .topic--static { cursor: default; }
 .topic--static:hover { transform: none; box-shadow: none; }
+
+/* record pages (e.g. /season6/family/) */
+.back { margin: 0 0 2.5rem; font-size: 0.9rem; }
+.back a { color: var(--ink-faint); text-decoration: none; }
+.back a:hover { color: var(--accent); }
+.record-title { font-size: clamp(1.6rem, 5vw, 2.1rem) !important; line-height: 1.35; word-break: keep-all; }
+.facts { margin: 0 0 2.25rem; display: grid; gap: 1.1rem; }
+.facts div { display: grid; grid-template-columns: 5.5rem 1fr; gap: 0.75rem; }
+.facts dt { font-family: var(--font-serif); color: var(--accent); font-size: 0.92rem; }
+.facts dd { margin: 0; color: var(--ink); word-break: keep-all; }
+.photo { margin: 0 0 2.25rem; }
+.photo img { width: 100%; height: auto; display: block; border-radius: 12px; border: 1px solid var(--hairline); }
+.review-link { margin-bottom: 1rem; }
+@media (max-width: 480px) { .facts div { grid-template-columns: 1fr; gap: 0.15rem; } }
