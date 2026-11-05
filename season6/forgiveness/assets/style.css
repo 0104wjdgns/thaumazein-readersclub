@@ -252,3 +252,10 @@ body.dark .answer, body.dark .paper, body.dark .name-btn {
 body.dark .answer { border-color: transparent; }
 body.dark .paper { box-shadow: 0 24px 60px -28px rgba(0,0,0,.55); }
 body.dark .bar { background: rgba(244,238,228,.18); }
+
+/* 인용 카드 정돈: 격언 한 덩이 + 한 줄 출처 */
+.quote { font-size: clamp(1.22rem, 4.8vw, 1.6rem); line-height: 1.75; }
+.quote-by { display: flex; flex-wrap: wrap; align-items: baseline; gap: .15em .6em; margin-top: var(--s6); padding-top: var(--s4); }
+.quote-author { font-size: .98rem; }
+.quote-work { margin: 0; }
+.quote-work::before { content: "· "; color: var(--ink-faint); }
