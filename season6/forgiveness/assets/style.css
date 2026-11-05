@@ -259,12 +259,3 @@ body.dark .bar { background: rgba(244,238,228,.18); }
 .quote-author { font-size: .98rem; }
 .quote-work { margin: 0; }
 .quote-work::before { content: "· "; color: var(--ink-faint); }
-
-/* 완료 화면 · 이미지 두 장 저장 */
-.keep { margin: var(--s6) auto 0; max-width: 30rem; }
-.keep-label { margin-bottom: var(--s3); }
-.keep-btns { display: grid; grid-template-columns: 1fr 1fr; gap: var(--s3); }
-.btn-keep { min-height: 52px; border-radius: var(--radius-pill); border: 1px solid var(--theme-main); color: var(--theme-main);
-  font-family: var(--font-serif); font-size: .98rem; transition: background var(--t-fast), color var(--t-fast); }
-.btn-keep:hover { background: var(--theme-main); color: var(--on-dark); }
-@media (max-width: 380px) { .keep-btns { grid-template-columns: 1fr; } }
