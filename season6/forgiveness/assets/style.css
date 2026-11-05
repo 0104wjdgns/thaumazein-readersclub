@@ -269,3 +269,4 @@ body.is-done {
   background: linear-gradient(180deg, #f6f0e6 0%, #f1e6e1 30%, #e2d2e0 60%, #c7b4d6 84%, #a993c6 100%) fixed;
   background-color: #f6f0e6;
 }
+.closing--end { margin: var(--s7) auto var(--s6); font-family: var(--font-serif); font-size: 1.15rem; color: var(--ink); line-height: 1.8; }

@@ -385,13 +385,13 @@
       delay(n("h1", { class: "rise", text: "답을 잘 받았어요" }), 0.1),
       delay(n("div", { class: "rise" }, [dots]), 0.3),
       caption, tag,
-      delay(n("p", { class: "closing rise", text: T.closing }), 0.6),
-      T.credit ? delay(n("p", { class: "credit rise", text: T.credit }), 0.68) : null,
+      T.credit ? delay(n("p", { class: "credit rise", text: T.credit }), 0.6) : null,
       delay(n("div", { class: "plus-n rise", text: T.plusN }), 0.75),
       delay(n("div", { class: "nav rise", style: "justify-content:center" }, [
         n("button", { class: "btn-ghost", text: "← 내 답 다시 보기 · 수정", onclick: function () { go(2); } })
       ]), 0.9),
-      n("p", { class: "notice", text: "다시 제출하면 마지막에 제출한 답이 최종 답으로 반영돼요." })
+      n("p", { class: "notice", text: "다시 제출하면 마지막에 제출한 답이 최종 답으로 반영돼요." }),
+      delay(n("p", { class: "closing closing--end rise", text: T.closing }), 1.0)
     ]));
 
     getCount(function (count, mode) {
