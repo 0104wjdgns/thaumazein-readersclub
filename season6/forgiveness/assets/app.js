@@ -386,6 +386,13 @@
       caption, tag,
       delay(n("p", { class: "closing rise", text: T.closing }), 0.6),
       delay(n("div", { class: "plus-n rise", text: T.plusN }), 0.75),
+      delay(n("div", { class: "keep rise" }, [
+        n("p", { class: "eyebrow keep-label", text: "간직하기" }),
+        n("div", { class: "keep-btns" }, [
+          n("button", { class: "btn-keep", text: "주제와 질문 저장", onclick: function () { window.RCSheets && window.RCSheets.download("questions"); } }),
+          n("button", { class: "btn-keep", text: "격언 모음 저장", onclick: function () { window.RCSheets && window.RCSheets.download("quotes"); } })
+        ])
+      ]), 0.82),
       delay(n("div", { class: "nav rise", style: "justify-content:center" }, [
         n("button", { class: "btn-ghost", text: "← 내 답 다시 보기 · 수정", onclick: function () { go(2); } })
       ]), 0.9),
